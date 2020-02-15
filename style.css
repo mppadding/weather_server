@@ -1,0 +1,17 @@
+#navigation{
+    background-color:rgba(22, 22, 63, 0.411);
+    height: 100%;
+}
+
+#nav-but{
+    background-color: rgba(22, 22, 63, 0.452);
+    text-align: center;
+    color: black;
+    margin: 50px auto;
+    outline: 0;
+    border-color:rgba(22, 22, 63, 0.452);
+}
+
+#nav-but:hover{
+    background-color:rgba(22, 22, 63, 0.123);
+}

@@ -1,0 +1,82 @@
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link type="text/css" rel="stylesheet" type="text/css" href="resources/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.5.1/rickshaw.css" integrity="sha256-3vAiod7sePtPgQYpPMFvmDNLWVbCeYiEjb9p4lt3PXQ=" crossorigin="anonymous" />
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" integrity="sha256-nLyOKFHjDHFEMwScDT3vCexJK5FyXc5O8vCpzPTjB9M=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rickshaw/1.5.1/rickshaw.js" integrity="sha256-ZiC8vR6Z4DfsHR0PL84TwzPy5bDBk0lGYxewuucYmuM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Include d3.js first -->
+
+    <link rel='icon' href='favicon.ico' type='image/x-icon'>
+    <script>
+        options = {
+            temperature: "{{ temperature }}",
+            pressure: "{{ pressure }}",
+            theme: "{{ theme }}",
+            timeframe: "{{ timeframe }}",
+        }
+    </script>
+
+    <title>HAAK weather station</title>
+  </head>
+  <body onresize="updateGraph('last')">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-2" style="background-color:rgba(22, 22, 63, 0.747); text-align: center; font-size: 35px; padding-top: 7px;">
+          <img id="logo" src="resources/images/logo.png">
+        </div>
+        <div class="col-10 overview">
+          Live Overview
+        </div>
+      </div>
+    </div>
+    <div id="navigation" class="container-fluid">
+        <div class="row">
+          <div class="col-2" style="text-align: center; height: 90%;">
+              <a href="/settings" ><button type="button" class="btn btn-secondary btn-lg btn-block" id="nav-but">Settings</button></a>
+            <button onclick="updateGraph('QuarterYear')"  type="button" class="btn btn-secondary btn-lg btn-block" id="nav-but">Quarter year</button>
+            <button onclick="updateGraph('Month')" id="nav-but" type="button" class="btn btn-secondary btn-lg btn-block">1 month</button>
+            <button onclick="updateGraph('Week')" id="nav-but" type="button" class="btn btn-secondary btn-lg btn-block">1 week</button>
+            <button onclick="updateGraph('Day')" id="nav-but" type="button" class="btn btn-secondary btn-lg btn-block">1 day</button>
+            <button onclick="customTimestamp()" id="nav-but" type="button" class="btn btn-secondary btn-lg btn-block">Custom</button>
+          </div>
+
+          <div id="chart_container" class="col-10" style="background-color:white; padding: 0px; "> 
+            <div class="completeCircle">
+              <div id="temperatureName">Temperature</div>
+              <div id="temperatureValue" class="circle"></div>
+            </div>
+            <div class="completeCircle">
+              <div id="humidityName">Humidity</div>
+              <div id="humidityValue" class="circle"></div>
+            </div>
+            <div class="completeCircle">
+              <div id="pressureName">Pressure</div>
+              <div id="pressureValue" class="circle"></div>
+            </div>
+            <div class="completeCircle">
+              <div id="luminosityName">Luminosity</div>
+              <div id="luminosityValue" class="circle"></div>
+            </div>
+            <div id="chart"></div>
+            <div id="y-axis"></div>
+            <div id="mylegend" class="rickshaw_graph"></div>
+            <div id="previewSlider"></div>
+          </div>
+          </div>
+          </div>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="resources/scripts/graph.js"></script>
+  </body>
+</html>

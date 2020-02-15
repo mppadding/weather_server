@@ -1,0 +1,182 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.overview{
+  background-color:rgba(22, 22, 63, 0.747); 
+  font-size: 35px;
+  color: rgb(214, 213, 213);
+}
+
+.circle {
+  width: 125px;
+  height: 62.5px;
+  border-radius: 35%;
+  font-size: 25px;
+  color: black;
+  line-height: 70px;
+  text-align: center;
+  background: rgba(22, 22, 63, 0.452);
+  margin-top: 1%;
+}
+
+.completeCircle{
+  float: left;
+  margin-left: 10.5%;
+  margin-top: 1%;
+  font-size: 22px;
+}
+
+#temperatureValue{
+  margin-left: 0%;
+}
+
+#humidityName{
+  margin-left: 12%;
+}
+
+#pressureName{
+  margin-left: 15%;
+}
+
+#luminosityName{
+  margin-left: 7%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: #f8f8f8;
+  color: #666;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 15vh;
+  background: #666;
+  color: #f8f8f8;
+}
+
+.title {
+  margin: 30px auto;
+  font-size: 40px;
+}
+
+main {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+
+#chart-container {
+  display: flex;
+  justify-content: left;
+  width: 85%;
+  margin: auto;
+  padding: 10px;
+  background: #eaeaea;
+  border: 3px solid #666;
+}
+
+.chart-box {
+  position: relative;
+  background: #eaeaea;
+  border: 1px solid #666;
+}
+
+.legend-box {
+  display: flex;
+  flex-direction: column;
+}
+
+#offset-form {
+  margin: 2em 0 0 15px;
+  font-size: 13px;
+}
+
+#chart {
+  position: relative;
+  margin-top: 15%;
+  margin-left: 5%;
+}
+
+
+#navigation{
+  background-color:rgba(22, 22, 63, 0.411);
+  width: 100vw;
+  position: relative;
+  margin-left: -50vw;
+  height: 90%;
+  margin-top: 0px;
+  left: 50%;
+}
+
+#chart_container{
+  background-color:white;
+  width: 85%;
+  position: relative;
+  margin-left: -50vw;
+  height: 90%;
+  margin-top: 0%;
+  left: 50%;
+  
+}
+
+#nav-but{
+  background-color: rgba(22, 22, 63, 0.452);
+  text-align: center;
+  color: white;
+  margin: 10px auto;
+  outline: 0;
+  border-color:rgba(22, 22, 63, 0.452);
+}
+
+#nav-but:hover{
+  background-color:rgba(22, 22, 63, 0.123);
+}
+
+#mylegend {
+  top: 0;
+  bottom: 0;
+  float: left;
+  position: absolute;
+  width: 10%; 
+  height: 17%;
+  margin-left: 80%;
+  margin-top: 15%;
+}
+
+#y-axis {
+  position: absolute;
+  top: 150;
+  margin-top: 5%;
+  bottom: 0;
+  left: 15;
+  width: 35px;
+  margin-left: 2%;
+}
+
+#logo{
+  width: 40px;
+  height: 40px;
+}
+
+#previewSlider{
+  position: relative;
+  margin-left: 5%;
+}
+
+
+
+
+
+

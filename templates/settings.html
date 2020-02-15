@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- <link rel="stylesheet" href="/styles/{{ theme }}.css"> -->
+        <link rel='icon' href='favicon.ico' type='image/x-icon'>
+	<title>HAAK weather station - Settings</title>
+    </head>
+    <body>
+	    <a href="/">Click here to go back</a><br />
+        <form action="/settings" method="POST" autocomplete="off">
+            <select name="temperature">
+                <option value="Kelvin" {% if temperature == "Kelvin" %}selected{% endif %}>Kelvin</option>
+                <option value="Celsius" {% if temperature == "Celsius" %}selected{% endif %}>Celsius</option>
+                <option value="Fahrenheit" {% if temperature == "Fahrenheit" %}selected{% endif %}>Fahrenheit</option>
+            </select>
+            <select name="pressure">
+                <option value="Atmosphere" {% if pressure == "Atmosphere" %}selected{% endif %}>Atmosphere</option>
+                <option value="Millibar" {% if pressure == "Millibar" %}selected{% endif %}>Millibar</option>
+                <option value="Bar" {% if pressure == "Bar" %}selected{% endif %}>Bar</option>
+                <option value="PSI" {% if pressure == "PSI" %}selected{% endif %}>PSI</option>
+                <option value="Mercury" {% if pressure == "Mercury" %}selected{% endif %}>Mercury</option>
+            </select>
+            <select name="theme">
+                <option value="Light" {% if theme == "Light" %}selected{% endif %}>Light</option>
+                <option value="Dark" {% if theme == "Dark" %}selected{% endif %}>Dark</option>
+            </select>
+            <select name="timeframe">
+                <option value="Week" {% if timeframe == "Week" %}selected{% endif %}>Week</option>
+                <option value="Month" {% if timeframe == "Month" %}selected{% endif %}>Month</option>
+                <option value="QuarterYear" {% if timeframe == "QuarterYear" %}selected{% endif %}>Quarter Year</option>
+            </select>
+            <input type="submit" value="Submit">
+        </form>
+        {% if admin %}
+            <script>
+                async function sendRegister(email) {
+                    let response = await fetch('/register', {
+                        method: 'POST',
+                        credentials: 'include',
+                        headers: {
+                            'Content-Type': 'application/json;charset=utf-8'
+                        },
+                        body: JSON.stringify({email: email})
+                    });
+
+                    alert("Registration email sent");
+                }
+            </script>
+            <form action="javascript:sendRegister(email.value)">
+                <label for="email">Email</label>
+                <input type="email" placeholder="Enter an email" name="email" id="email" required>
+                <button type="submit" value="Submit">Register</button>
+            </form>
+        {% endif %}
+    </body>
+</html>
+
